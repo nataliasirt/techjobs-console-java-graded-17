@@ -124,7 +124,7 @@ public class TechJobs {
             System.out.println("No Results");
             return;
         }
-            // Loops over the job HashMap and prints each field's name and value
+        // Iterates through each job in the list
             for (HashMap<String, String> job : someJobs) {
             System.out.println("\n*****");
                 // Iterates through each key-value pair in the job HashMap
