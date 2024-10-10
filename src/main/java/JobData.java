@@ -41,6 +41,7 @@ public class JobData {
                 values.add(aValue);
             }
         }
+
         // Bonus Mission Sort the list alphabetically
         Collections.sort(values);
 
