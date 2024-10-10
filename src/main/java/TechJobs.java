@@ -10,7 +10,7 @@ public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -62,7 +62,7 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-                    System.out.println("Search all fields not implemented yet.");
+                    printJobs(JobData.findByValue(searchTerm));
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
@@ -112,7 +112,7 @@ public class TechJobs {
                 validChoice = true;
             }
 
-        } while(!validChoice);
+        } while (!validChoice);
 
         return choiceKeys[choiceIdx];
     }
@@ -120,20 +120,18 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
         // Checks if there are no jobs to print
-        if (someJobs.isEmpty()) {
-            System.out.println("No Results");
-            return;
-        }
-        // Iterates through each job in the list
+        if (someJobs.size() == 0) {
+            System.out.print("No Results");
+        } else {
+            // Iterates through each job in the list
             for (HashMap<String, String> job : someJobs) {
-            System.out.println("\n*****");
+                System.out.println("\n*****");
                 // Iterates through each key-value pair in the job HashMap
                 for (Map.Entry<String, String> jobInfo : job.entrySet()) {
-                System.out.println(jobInfo.getKey() + ": " + jobInfo.getValue());
+                    System.out.println(jobInfo.getKey() + ": " + jobInfo.getValue());
+                }
+                System.out.println("*****"); // Adds blank line after each job
             }
-            System.out.println("*****\n"); // Adds blank line after each job
         }
-
     }
 }
-
