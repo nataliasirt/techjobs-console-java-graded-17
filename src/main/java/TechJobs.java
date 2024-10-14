@@ -119,19 +119,19 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-        // Checks if there are no jobs to print
-        if (someJobs.size() == 0) {
+        if (someJobs.isEmpty()) {
             System.out.print("No Results");
-        } else {
-            // Iterates through each job in the list
-            for (HashMap<String, String> job : someJobs) {
-                System.out.println("\n*****");
-                // Iterates through each key-value pair in the job HashMap
-                for (Map.Entry<String, String> jobInfo : job.entrySet()) {
-                    System.out.println(jobInfo.getKey() + ": " + jobInfo.getValue());
-                }
-                System.out.println("*****"); // Adds blank line after each job
-            }
+            return;
+        }
+
+        for (HashMap<String, String> job : someJobs) {
+            System.out.println("\n*****");
+            System.out.println("position type: " + job.get("position type"));
+            System.out.println("name: " + job.get("name"));
+            System.out.println("employer: " + job.get("employer"));
+            System.out.println("location: " + job.get("location"));
+            System.out.println("core competency: " + job.get("core competency"));
+            System.out.println("*****");
         }
     }
 }
