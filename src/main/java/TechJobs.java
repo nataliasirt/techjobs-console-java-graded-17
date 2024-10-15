@@ -121,17 +121,14 @@ public class TechJobs {
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
         if (someJobs.isEmpty()) {
             System.out.print("No Results");
-            return;
-        }
-
-        for (HashMap<String, String> job : someJobs) {
-            System.out.println("\n*****");
-            System.out.println("position type: " + job.get("position type"));
-            System.out.println("name: " + job.get("name"));
-            System.out.println("employer: " + job.get("employer"));
-            System.out.println("location: " + job.get("location"));
-            System.out.println("core competency: " + job.get("core competency"));
-            System.out.println("*****");
+        }else{
+            for (HashMap<String, String> job : someJobs) {
+                System.out.println("\n*****");
+                for (Map.Entry<String, String> jobInf : job.entrySet()) {
+                    System.out.println(jobInf.getKey() + ": " + jobInf.getValue());
+                }
+                System.out.println("*****");
+            }
         }
     }
 }
